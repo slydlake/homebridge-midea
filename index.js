@@ -59,7 +59,7 @@ class MideaAccessory {
 		this.fanOnlyModeName = config.fanOnlyModeName || 'Fan Only Mode';
 		this.temperatureSteps = config.temperatureSteps || 0.5;
 
-		this.supportedSwingMode = 0;
+		this.supportedSwingMode = '';
 		// values from device are 0.0="Off",12.0="Vertical",3.0="Horizontal",15.0="Both"
 		switch (config.supportedSwingMode) {
 			case 'Vertical':
@@ -291,9 +291,9 @@ class MideaAccessory {
 	// set this to a valid value for swingMode
 	// values from device are 0.0="Off",12.0="Vertical",3.0="Horizontal",15.0="Both"
 
-	let currentValue = Characteristic.SwingMode.SWING_DISABLED
+	let currentValue = Characteristic.SwingMode.disabled
 		if (this.swingMode != 0 ){
-			currentValue = Characteristic.SwingMode.SWING_ENABLED
+			currentValue = Characteristic.SwingMode.enabled
 		}
 
 	callback(null, currentValue);
