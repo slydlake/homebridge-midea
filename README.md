@@ -5,19 +5,57 @@ Homebridge plugin to control Midea AC units. Still in early development.
 
 ## Configuration
 
-Add this to the accessories array in your config.json:
+Add this to the platforms array in your config.json:
 
 	{
-	    "accessory": "midea",
+	    "platform": "midea",
 	    "user": "MIDEA_ACCOUNT_EMAIL",
 	    "password": "MIDEA_PASSWORD",
-	    "name": "NAME",
-	    "interval": 1
+	    "interval": 1,
+	    "devices": [
+	    	{
+	    		"deviceId": "DEVICE_ID"
+	    		"supportedSwingMode": "Vertical",
+				"temperatureSteps": 1,
+				"fanOnlyMode": true,
+				"fanOnlyModeName": "Fan Only Mode"
+	    	}
+	    ]
 	}
+
+## Optional per-device Configuration Values
+
+To set specific per-device values, be sure to first look into the Home app to find your deviceId and use it as the key in the ```devices``` object
+
+### supportedSwingMode
+
+"Off", "Vertical", "Horizontal", "Both"
+You have to select which type your device supports
+
+
+### temperatureSteps
+
+Temperature steps that the device supports. Default is 0.5
+
+### fanOnlyMode & fanOnlyModeName
+
+This allows you to enable a fan-only mode service
+
+
+## Usage
+
+Rotation Speed/Swing mode can set in the homekit device when you swipe up tp the device settings.
+Rotation Speed values are:
+0 : device off
+-25%: Low 
+-50%: Middle
+-75%: High
+-100%: Auto
+
 
 ## Notes
 
-As of now, this plugin just uses the first device in your account and doesn't care about anything else. The goal is to make this into a platform plugin to allow all of your Midea devices to be shown in HomeKit but this requires more knowledge of other device types.
+This version of ```homebridge-midea``` is a platform and should be able to access all device in the user's account. However, many devices may not be supported or function incorrectly. This is due to the lack of documentation of the raw MSmart API. If you encounter any problems, please open a new issue and specify your device model.
 
 
 ## Credits
