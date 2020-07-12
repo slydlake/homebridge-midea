@@ -1,5 +1,7 @@
 # homebridge-midea
 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/TobiasTimpe) – In case you want to support my work :)
+
 Homebridge plugin to control Midea AC units. Still in early development.
 
 
@@ -14,9 +16,9 @@ Add this to the platforms array in your config.json:
 	    "interval": 1,
 	    "devices": [
 	    	{
-	    		"deviceId": "DEVICE_ID"
+	    		"deviceId": "DEVICE_ID",
 	    		"supportedSwingMode": "Vertical",
-				"temperatureSteps": 1
+			"temperatureSteps": 1
 	    	}
 	    ]
 	}
